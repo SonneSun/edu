@@ -1,0 +1,170 @@
+{% extends "bootstrap/base.html" %}
+
+{% block scripts %}
+{{ super() }}
+{{ moment.include_moment() }}
+{% endblock %}
+
+{% block title %}TBD{% endblock %}
+
+{% block head %}
+{{ super() }}
+
+<link href="https://s3.amazonaws.com/codecademy-content/courses/ltp/css/shift.css" rel="stylesheet">
+<link rel="stylesheet" href="https://s3.amazonaws.com/codecademy-content/courses/ltp/css/bootstrap.css">
+<link rel="stylesheet" href="main.css">
+<style>
+    .nav a {
+            color: #5a5a5a;
+            font-size: 12px;
+            font-weight: bold;
+            padding: 14px 10px;
+            text-transform: uppercase;
+            }
+
+    .nav li {
+    display: inline;
+    }
+
+    .jumbotron {
+    background-image:url('https://goo.gl/04j7Nn');
+    height: 300px;
+    }
+
+    .jumbotron .container {
+    position: relative;
+    top:100px;
+    }
+
+    .jumbotron h1 {
+    color: #fff;
+    font-size: 48px;
+    font-family: 'Shift', sans-serif;
+    font-weight: bold;
+    }
+
+    .jumbotron p {
+    font-size: 20px;
+    color: #fff;
+    }
+
+    .learn-more {
+    background-color: #f7f7f7;
+    }
+
+    .learn-more h3 {
+    font-family: 'Shift', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    }
+
+    .learn-more a {
+    color: #00b0ff;
+    }
+
+    .neighborhood-guides {
+    background-color: #efefef;
+    border-bottom:1px solid #dbdbdb;
+    }
+
+    .neighborhood-guides h2 {
+    color: #393c3d;
+    font-size: 24px;
+    }
+
+    .neighborhood-guides p {
+    margin-bottom: 13px;
+    font-size: 15px;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<body>
+  <div class="nav">
+    <div class="container">
+      <ul class="pull-left">
+        <li><a href="#">公司名</a></li>
+        <li><a href="#">搜索</a></li>
+      </ul>
+      <ul class="pull-right">
+        <li><a href="#">成为导师</a></li>
+        <li><a href="#">注册</a></li>
+        <li><a href="#">登录</a></li>
+        <li><a href="#">帮助</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="jumbotron">
+    <div class="container">
+      <h1>TBD</h1>
+      <p>&nbsp&nbsp&nbsp&nbsp 辅导，答疑，信息分享</p>
+    </div>
+  </div>
+
+
+
+  <div class="learn-more">
+     <div class="container">
+       <h2>课程补习</h2>
+       <div class="row">
+          <div class="col-md-4">
+               <a href="{{ url_for('main.homework_mentor') }}">
+               <img src="{{url_for('static',filename='fudao1.jpg')}}" height="200" width="300" />
+               </a>
+               <h3>作业</h3>
+               <p>和导师一对一探讨课程知识点，作业中的疑难问题。</p>
+               <p><a href="{{ url_for('main.homework_mentor') }}">预约导师</a></p>
+          </div>
+          <div class="col-md-4">
+               <img src="{{url_for('static',filename='fudao2.jpg')}}" height="200" width="300"/>
+               <h3>考试</h3>
+               <p>考前集中辅导，梳理重点。</p>
+               <p><a href="#">预约导师</a></p>
+          </div>
+
+         </div>
+      </div>
+  </div>
+
+  <div class="learn-more">
+     <div class="container">
+       <h2>校园生活</h2>
+       <div class="row">
+          <div class="col-md-4">
+               <img src="{{url_for('static',filename='campus1.jpg')}}" height="200" width="300"/>
+               <h3>悉尼大学初体验</h3>
+               <p><a href="#">了解更多</a></p>
+          </div>
+          <div class="col-md-4">
+               <img src="{{url_for('static',filename='campus2.jpg')}}" height="200" width="300"/>
+               <h3>选课经验</h3>
+               <p><a href="#">了解更多</a></p>
+          </div>
+
+         </div>
+      </div>
+  </div>
+
+  <div class="learn-more">
+     <div class="container">
+       <h2>XX辅导</h2>
+       <div class="row">
+          <div class="col-md-5">
+               <h3>PTE</h3>
+               <p>XXX</p>
+               <p><a href="#">了解更多</a></p>
+          </div>
+          <div class="col-md-5">
+               <h3>XXX</h3>
+               <p>XXX</p>
+               <p><a href="#">了解更多</a></p>
+          </div>
+
+         </div>
+      </div>
+  </div>
+
+</body>
+{% endblock %}
