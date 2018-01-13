@@ -1,13 +1,9 @@
-from flask import Flask, request, render_template, redirect, url_for
+from flask import Flask
 from flask_bootstrap import Bootstrap
 from flask_moment import Moment
 from flask_sqlalchemy import SQLAlchemy
-from flask_wtf import FlaskForm
-from wtforms import TextAreaField, SubmitField
-from wtforms.validators import Required
-import os
-from datetime import datetime
 from config import config
+
 
 
 bootstrap = Bootstrap()
@@ -28,5 +24,3 @@ def create_app(config_name):
 	app.register_blueprint(main_blueprint)
 
 	return app, db
-
-

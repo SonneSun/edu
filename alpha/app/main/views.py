@@ -12,22 +12,20 @@ from .. import db
 
 
 
-
-
-
-class Mentor_profile(db.Model):
-	__tablename__ = 'questions_dp'
+class MentorProfile(db.Model):
+	__tablename__ = 'mentor_profile'
 	id = db.Column(db.Integer, primary_key = True)
 	last_name = db.Column(db.Text)
 	first_name = db.Column(db.Text)
+	full_name = db.Column(db.Text)
 	rating = db.Column(db.Integer)
 	domain = db.Column(db.Text)
 	introduction = db.Column(db.Text)
 	pic_path = db.Column(db.Text)
 
 
-class User_profile(db.Model):
-	__tablename__ = 'questions_nlp'
+class UserProfile(db.Model):
+	__tablename__ = 'user_profile'
 	id = db.Column(db.Integer, primary_key = True)
 	last_name = db.Column(db.Text)
 	first_name = db.Column(db.Text)
@@ -50,8 +48,9 @@ def index():
 #The home page, default is analytics
 @main.route('/homework_mentor', methods=['GET','POST'])
 def homework_mentor():
-
-	return render_template('homework_mentor.html')
+	mentors = MentorProfile.query.all()
+	
+	return render_template('homework_mentor.html', mentors = mentors)
 
 
 @main.route('/booking_mask', methods=['GET','POST'])
