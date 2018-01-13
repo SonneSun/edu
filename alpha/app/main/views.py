@@ -49,11 +49,11 @@ def index():
 @main.route('/homework_mentor', methods=['GET','POST'])
 def homework_mentor():
 	mentors = MentorProfile.query.all()
-	
+
 	return render_template('homework_mentor.html', mentors = mentors)
 
 
-@main.route('/booking_mask', methods=['GET','POST'])
-def booking_mask():
+@main.route('/booking_mentor/<mentor_full_name>', methods=['GET','POST'])
+def booking_mentor(mentor_full_name):
 
-	return render_template('booking_mask.html')
+	return render_template('booking_mentor.html', mentor_full_name = mentor_full_name)
