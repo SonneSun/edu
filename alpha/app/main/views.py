@@ -32,9 +32,6 @@ class UserProfile(db.Model):
 	email = db.Column(db.Text)
 
 
-class QuestionForm(FlaskForm):
-	body = TextField("",validators=[Required()])
-
 
 
 
@@ -55,5 +52,5 @@ def homework_mentor():
 
 @main.route('/booking_mentor/<mentor_full_name>', methods=['GET','POST'])
 def booking_mentor(mentor_full_name):
-
+	print mentor_full_name
 	return render_template('booking_mentor.html', mentor_full_name = mentor_full_name)

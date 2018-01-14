@@ -98,10 +98,8 @@
       </div>
       <div class="col-md-4">
         <div>
-          <!--
-          <button type="button" onclick="alert('Hello world!')">尝试预约</button>
-          -->
-          <a href="{{ url_for('main.booking_mentor', mentor_full_name=mentor.full_name) }}" class="button">尝试预约</a>
+          {% set a = mentor.full_name+'+'+mentor.pic_path %}
+          <a href="{{ url_for('main.booking_mentor', mentor_full_name=a) }}" class="button">尝试预约</a>
         </div>
         <div>
           <a href="#" class="button">联系导师</a>
