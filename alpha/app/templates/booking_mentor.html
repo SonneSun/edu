@@ -36,24 +36,34 @@
       padding: 3px 10px 3px 0;
     }
     .title {
-      font-size: 20px;
+      font-size: 25px;
       font-weight: bold;
       font-family: "Arial", Georgia, Serif;
     }
     .sub-title {
+      font-size: 18px;
+      font-weight: bold;
+      color: #3F3F3F;
+    }
+    .selection {
+      font-size: 15px;
+      font-weight: bold;
       color: #3F3F3F;
     }
 
     .button {
-      background-color: #FFAE46;
+      background-color: #FFD853;
       border: none;
       color: white;
-      padding: 10px 20px;
+      padding: 10px 10px;
+      border-radius: 5px;
       text-align: center;
       text-decoration: none;
       display: inline-block;
-      font-size: 16px;
-      margin: 4px 2px;
+      font-size: 15px;
+      font-weight: bold;
+      color: #3F3F3F;
+      margin: 2px 2px;
       cursor: pointer;
     }
     p {
@@ -80,6 +90,7 @@
 {% set mentor_pic_path = mentor_pic_path_ori.replace('-','/') %}
 <div class="mentor-style">
   <div class="container">
+      
     <div class="box-small">
         <img src="{{url_for('static',filename=mentor_pic_path)}}" height="50" width="50"/>
     </div>
@@ -88,13 +99,14 @@
     </div>
 
     <div class="row">
+        <div class="col-lg">
         <div id="accordion" role="tablist" aria-multiselectable="true">
             
-          <div class="card">
-            <div class="card-header" role="tab" id="headingOne">
-              <h5 class="mb-0">
-                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                  课程主题
+          <div class="card" style="border-color: #FFC246;">
+            <div class="card-header" role="tab" id="headingOne" style="background-color: #FFC246;">
+              <h5>
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" >
+                  <p class="sub-title">课程主题</p>
                 </a>
               </h5>
             </div>
@@ -107,38 +119,50 @@
             </div>
           </div>
             
-          <div class="card">
-            <div class="card-header" role="tab" id="headingTwo">
+          <div class="card" style="border-color: #FFC246;">
+            <div class="card-header" role="tab" id="headingTwo" style="background-color: #FFC246;">
               <h5 class="mb-0">
                 <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                  课程时长
+                  <p class="sub-title">课程时长</p>
                 </a>
               </h5>
             </div>
             <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo">
               <div class="card-block">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                <a href="#" class="button">45 minutes</a>
+                  <a href="#" class="button">60 minutes</a>
               </div>
             </div>
           </div>
             
-          <div class="card">
-            <div class="card-header" role="tab" id="headingThree">
+          <div class="card" style="border-color: #FFC246;">
+            <div class="card-header" role="tab" id="headingThree" style="background-color: #FFC246;">
               <h5 class="mb-0">
                 <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                  预定时间
+                  <p class="sub-title">预定时间</p>
                 </a>
               </h5>
             </div>
             <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
               <div class="card-block">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                <script type="text/javascript" src="jquery.js"></script>
+                <script type="text/javascript" src="moment.js"></script>
+                <script type="text/javascript" src="daterangepicker.js"></script>
+                <link rel="stylesheet" type="text/css" href="bootstrap.css" />
+                <link rel="stylesheet" type="text/css" href="daterangepicker-bs3.css" />
+
+                <script type="text/javascript">
+                $(document).ready(function() {
+                  $('input[name="daterange"]').daterangepicker();
+                });
+                </script>
               </div>
             </div>
           </div>
             
     </div>       
     </div>
+      </div>
       
   </div>
 </div>
