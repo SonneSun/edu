@@ -62,4 +62,6 @@ def homework_mentor():
 def booking_mentor(param):
 	#mentor_full_name, mentor_pic_path_ori = param.split('+')
     #print param
+    if request.method == 'POST':
+    
 	return render_template('booking_mentor.html', param = param)
