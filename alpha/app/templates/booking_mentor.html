@@ -81,7 +81,7 @@
     div.col-md-4 {
       margin-top: 20px;
     }
-    
+
     @import url( https://fonts.googleapis.com/css?family=Montserrat );
 
     .clearfix{*zoom:1}.clearfix:before,.clearfix:after{display:table;line-height:0;content:""}.clearfix:after{clear:both}
@@ -138,18 +138,36 @@
     }
 
     .calender .day:hover{
-      background:rgb(0, 127, 114);
+      background:#FFAE46;
       color:#f7f7f7;
       box-shadow:inset 0 0 20px rgba(0,0,0,.4);
       text-shadow:1px 1px 2px rgba(0,0,0,.4);
     }
 
     .calender .day.current{
-      background:rgba(236, 154, 24, 1);
+      background:#FFAE46;
       color:#f7f7f7;
       box-shadow:inset 0 0 20px rgba( 0,0,0, .4);
       text-shadow:1px 1px 2px rgba(0,0,0,.4);
-    
+
+     .btn{
+       padding: 10px 20px;
+       font-size: 20px;
+       border-radius: 10px;
+       border:1px solid #f7f7f7;
+       text-align:center;
+       background:#ddd;
+       font-family:sans-serif;
+       -webkit-transition: all .2s ease;
+      }
+
+      @include media-breakpoint-between(xs,sm){
+        .btn {
+            @include button-size($input-btn-padding-y-sm, $input-btn-padding-x-sm, $font-size-sm, $line-height-sm, $btn-border-radius-sm);
+        }
+      }
+
+
 </style>
 {% endblock %}
 
@@ -160,7 +178,7 @@
 {% set mentor_pic_path = mentor_pic_path_ori.replace('-','/') %}
 <div class="mentor-style">
   <div class="container">
-      
+
     <div class="box-small">
         <img src="{{url_for('static',filename=mentor_pic_path)}}" height="50" width="50"/>
     </div>
@@ -171,7 +189,7 @@
     <div class="row">
         <div class="col-lg">
         <div id="accordion" role="tablist" aria-multiselectable="true">
-            
+
           <div class="card" style="border-color: #FFC246;">
             <div class="card-header" role="tab" id="headingOne" style="background-color: #FFC246;">
               <h5>
@@ -188,7 +206,7 @@
               </div>
             </div>
           </div>
-            
+
           <div class="card" style="border-color: #FFC246;">
             <div class="card-header" role="tab" id="headingTwo" style="background-color: #FFC246;">
               <h5 class="mb-0">
@@ -204,7 +222,7 @@
               </div>
             </div>
           </div>
-            
+
           <div class="card" style="border-color: #FFC246;">
             <div class="card-header" role="tab" id="headingThree" style="background-color: #FFC246;">
               <h5 class="mb-0">
@@ -215,53 +233,66 @@
             </div>
             <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree">
               <div class="card-block">
-                <div class="calender"> 
+
+                <div class="calender">
                   <div class="month">
                     <h1>March - 2018</h1>
-                    <form action="" method="POST" ><button class="btn btn-danger" type="submit" name="delete" value="{{  item2  }}">
-                        <span class="day">1</span>
-                    </button></form>
-                    <span class="day">2</span>
-                    <span class="day">3</span>
-                    <span class="day">4</span>
-                    <span class="day">5</span>
-                    <span class="day">6</span>
-                    <span class="day">7</span>
-                    <span class="day">8</span>
-                    <span class="day">9</span>
-                    <span class="day">10</span>
-                    <span class="day">11</span>
-                    <span class="day">12</span>
-                    <span class="day">13</span>
-                    <span class="day">14</span>
-                    <span class="day">15</span>
-                    <span class="day">16</span>
-                    <span class="day">17</span>
-                    <span class="day">18</span>
-                    <span class="day">19</span>
-                    <span class="day">20</span>
-                    <span class="day">21</span>
-                    <span class="day">22</span>
-                    <span class="day">23</span>
-                    <span class="day current">24</span>
-                    <span class="day">25</span>
-                    <span class="day">26</span>
-                    <span class="day">27</span>
-                    <span class="day">28</span>
-                    <span class="day">29</span>
-                    <span class="day">30</span>
-                    <span class="day">31</span>
+                    <form action="" method="post">
+                      {{ form.csrf }}
+
+                      <div class="container">
+                        <div class="col-xs-12 col-xs-offset-0 col-sm-offset-3 col-sm-6">
+                          <button class="btn btn-group">Click me!</button>
+                        </div>
+                      </div>
+
+                      <div class="btn-group btn-group-lg" >
+                      <button class="btn" type="submit" name="day" value="1">1</button>
+                      <button class="btn" type="submit" name="day" value="2">2</button>
+                      <button class="btn" type="submit" name="day" value="3">3</button>
+                      <button class="btn" type="submit" name="day" value="4">4</button>
+                      <button class="btn" type="submit" name="day" value="5">5</button>
+                      <button class="btn" type="submit" name="day" value="6">6</button>
+                      <button class="btn" type="submit" name="day" value="7">7</button>
+                      </div>
+
+                      <button class="btn" type="submit" name="day" value="8">8</button>
+                      <button class="btn" type="submit" name="day" value="9">9</button>
+                      <button class="btn" type="submit" name="day" value="10">10</button>
+                      <button class="btn" type="submit" name="day" value="11">11</button>
+                      <button class="btn" type="submit" name="day" value="12">12</button>
+                      <button class="btn" type="submit" name="day" value="13">13</button>
+                      <button class="btn" type="submit" name="day" value="14">14</button>
+                      <button class="btn" type="submit" name="day" value="15">15</button>
+                      <button class="btn" type="submit" name="day" value="16">16</button>
+                      <button class="btn" type="submit" name="day" value="17">17</button>
+                      <button class="btn" type="submit" name="day" value="18">18</button>
+                      <button class="btn" type="submit" name="day" value="19">19</button>
+                      <button class="btn" type="submit" name="day" value="20">20</button>
+                      <button class="btn" type="submit" name="day" value="21">21</button>
+                      <button class="btn" type="submit" name="day" value="22">22</button>
+                      <button class="btn" type="submit" name="day" value="23">23</button>
+                      <button class="btn" type="submit" name="day" value="24">24</button>
+                      <button class="btn" type="submit" name="day" value="25">25</button>
+                      <button class="btn" type="submit" name="day" value="26">26</button>
+                      <button class="btn" type="submit" name="day" value="27">27</button>
+                      <button class="btn" type="submit" name="day" value="28">28</button>
+                      <button class="btn" type="submit" name="day" value="29">29</button>
+                      <button class="btn" type="submit" name="day" value="30">30</button>
+                      <button class="btn" type="submit" name="day" value="31">31</button>
+                    </form>
+
                     <div class="clearfix"></div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-            
-    </div>       
+
+    </div>
     </div>
       </div>
-      
+
   </div>
 </div>
 

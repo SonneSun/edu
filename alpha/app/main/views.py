@@ -1,6 +1,5 @@
 from flask import render_template, redirect, url_for, flash, jsonify, request, make_response
-from flask_wtf import FlaskForm
-from wtforms import TextField
+from wtforms import Form, TextField, validators, SubmitField
 from wtforms.validators import Required
 from datetime import datetime
 import json
@@ -30,16 +29,17 @@ class UserProfile(db.Model):
 	last_name = db.Column(db.Text)
 	first_name = db.Column(db.Text)
 	email = db.Column(db.Text)
-    
+
 class MentorDetail(db.Model):
     __tablename__ = 'mentor_detail'
     id = db.Column(db.Integer, primary_key = True)
     full_name = db.Column(db.Text)
     topic_detail = db.Column(db.Text)
     time_detail = db.Column(db.Text)
-    
 
 
+class MyForm(Form):
+    date = SubmitField()
 
 
 
@@ -60,8 +60,14 @@ def homework_mentor():
 
 @main.route('/booking_mentor/<param>', methods=['GET','POST'])
 def booking_mentor(param):
-	#mentor_full_name, mentor_pic_path_ori = param.split('+')
-    #print param
-    if request.method == 'POST':
-    
-	return render_template('booking_mentor.html', param = param)
+	form = MyForm(request.form)
+
+	if request.method == 'POST':
+		post_id = request.form.get('day')
+		if post_id is not None:
+			print post_id
+		return render_template('booking_mentor.html', param = param, form=form)
+
+
+	elif request.method == 'GET':
+		return render_template('booking_mentor.html', param = param, form=form)
